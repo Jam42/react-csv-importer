@@ -116,6 +116,7 @@ export function Importer<Row extends BaseRow>({
   onComplete,
   onClose,
   children: content,
+  CustomImporterFrame,
   ...customPapaParseConfig
 }: React.PropsWithChildren<ImporterProps<Row>>): React.ReactElement {
   // helper to combine our displayed content and the user code that provides field definitions
@@ -240,6 +241,7 @@ export function Importer<Row extends BaseRow>({
         }
         onComplete={onComplete}
         onClose={onClose}
+        CustomImporterFrame={CustomImporterFrame}
       />
     </ContentWrapper>
   );

@@ -43,4 +43,5 @@ export interface ImporterProps<Row extends BaseRow>
   onComplete?: (info: ImportInfo) => void;
   onClose?: (info: ImportInfo) => void;
   children?: ImporterContentRenderProp | React.ReactNode;
+  CustomImporterFrame?: React.FC<{ isComplete?: boolean; isError?: boolean }>;
 }
