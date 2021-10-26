@@ -16,9 +16,9 @@ export const ImporterFrame: React.FC<{
   onSecondary?: () => void;
   onNext: () => void;
   onCancel?: () => void;
-  CustomImporterFrame: React.FC<{ isComplete: boolean; isError: boolean }>;
-  isComplete: boolean;
-  isError: boolean;
+  CustomImporterFrame?: React.FC<{ isComplete?: boolean; isError?: boolean }>;
+  isComplete?: boolean;
+  isError?: boolean;
 }> = ({
   fileName,
   subtitle,
@@ -46,7 +46,7 @@ export const ImporterFrame: React.FC<{
     }
   }, []);
 
-  if (CustomImporterFrame !== null) {
+  if (CustomImporterFrame) {
     return <CustomImporterFrame isComplete={isComplete} isError={isError} />;
   }
 

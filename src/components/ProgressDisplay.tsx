@@ -43,7 +43,7 @@ export function ProgressDisplay<Row extends BaseRow>({
   onComplete?: (info: ImportInfo) => void;
   onRestart?: () => void;
   onClose?: (info: ImportInfo) => void;
-  CustomImporterFrame: React.FC;
+  CustomImporterFrame?: React.FC<{ isComplete?: boolean; isError?: boolean }>;
 }>): React.ReactElement {
   const [progressCount, setProgressCount] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
