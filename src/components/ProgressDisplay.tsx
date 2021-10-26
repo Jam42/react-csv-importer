@@ -32,7 +32,8 @@ export function ProgressDisplay<Row extends BaseRow>({
   onStart,
   onComplete,
   onRestart,
-  onClose
+  onClose,
+  CustomImporterFrame
 }: React.PropsWithChildren<{
   preview: Preview;
   externalPreview: ImporterFilePreview;
@@ -42,6 +43,7 @@ export function ProgressDisplay<Row extends BaseRow>({
   onComplete?: (info: ImportInfo) => void;
   onRestart?: () => void;
   onClose?: (info: ImportInfo) => void;
+  CustomImporterFrame: React.FC;
 }>): React.ReactElement {
   const [progressCount, setProgressCount] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
@@ -182,6 +184,9 @@ export function ProgressDisplay<Row extends BaseRow>({
       onSecondary={onRestart && onClose ? onRestart : undefined}
       nextDisabled={(!onClose && !onRestart) || !isComplete || isDismissed}
       nextLabel={!onClose && onRestart ? 'Upload More' : 'Finish'}
+      CustomImporterFrame={CustomImporterFrame}
+      isComplete={isComplete}
+      isError={!!error}
       onNext={() => {
         setIsDismissed(true);
 

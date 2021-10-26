@@ -16,6 +16,9 @@ export const ImporterFrame: React.FC<{
   onSecondary?: () => void;
   onNext: () => void;
   onCancel?: () => void;
+  CustomImporterFrame: React.FC<{ isComplete: boolean; isError: boolean }>;
+  isComplete: boolean;
+  isError: boolean;
 }> = ({
   fileName,
   subtitle,
@@ -27,7 +30,10 @@ export const ImporterFrame: React.FC<{
   onSecondary,
   onNext,
   onCancel,
-  children
+  children,
+  CustomImporterFrame,
+  isComplete,
+  isError
 }) => {
   const titleRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLDivElement>(null);
@@ -39,6 +45,10 @@ export const ImporterFrame: React.FC<{
       titleRef.current.focus();
     }
   }, []);
+
+  if (CustomImporterFrame !== null) {
+    return <CustomImporterFrame isComplete={isComplete} isError={isError} />;
+  }
 
   return (
     <div className="CSVImporter_ImporterFrame">
