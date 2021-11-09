@@ -21,7 +21,8 @@ export const FileSelector: React.FC<{ onSelected: (file: File) => void }> = ({
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: dropHandler,
-    accept: '.csv'
+    accept: '.csv',
+    multiple: false
   });
 
   return (
